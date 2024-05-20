@@ -5,6 +5,8 @@ networks:
   database:
     name: backbone_database
     external: true
+  application:
+    external: false
 
 services:
   orchestra:
@@ -36,6 +38,7 @@ services:
       - ./xo-data:/storage
     networks:
       - proxy
+      - application
     logging: &default_logging
       driver: "json-file"
       options:
@@ -49,5 +52,7 @@ services:
     command: redis-server --appendonly yes
     volumes:
       - ./redis-data:/data
+    networks:
+      - application
     logging:
       <<: *default_logging
