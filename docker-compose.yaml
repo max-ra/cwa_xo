@@ -17,7 +17,9 @@ services:
       - redis
     labels:
       - traefik.enable=true
+      - traefik.http.routers.xoa.ruleSyntax=v3
       - traefik.http.routers.xoa.tls=true
+      - traefik.http.routers.xoa.entryPoints=https
       - traefik.http.routers.xoa.tls.certresolver=${CERTRESOLVER:-}
       - traefik.http.routers.xoa.rule=Host("${APPLICATION_FQDN}")
       - traefik.http.routers.xoa.service=xoa-service
