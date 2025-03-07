@@ -11,7 +11,7 @@ networks:
 services:
   orchestra:
     restart: unless-stopped
-    image: ezka77/xen-orchestra-ce:latest
+    image: ezka77/xen-orchestra-ce:5.170
     container_name: xo_server
     depends_on:
       - redis
